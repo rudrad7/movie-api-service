@@ -1,0 +1,46 @@
+server.port= 9999
+ #Route Mapping
+#spring.cloud.gateway.routes.id=  catlogMicroservice 
+#spring.cloud.gateway.routes.uri=http://localhost:8082/
+#spring.cloud.gateway.routes.predicates.path=/movCatCtrl/fetchAllMovieCat
+#spring.cloud.gateway.routes.predicates.path=/movCatCtrl/findMovieCatById/{id}
+#spring.cloud.gateway.routes.predicates.path=/movCatCtrl/addmoviefrmpostman/
+
+spring.cloud.gateway.routes.id=movie-admin-ui-service
+spring.cloud.gateway.routes.
+#spring.cloud.gateway.routes.uri=http://localhost:9093/
+spring.cloud.gateway.routes.uri=lb://MOVIE-ADMIN-UI-SERVICE
+spring.cloud.gateway.routes.predicates.path=/**
+
+# This is for registring as eureka client
+spring.application.name=movie-api-service
+eureka.client.serviceUrl.defaultZone:http://localhost:8761/eureka
+
+
+#write the path  movie-admin-service
+
+#spring.cloud.gateway.routes.id=movie-adminui-service
+spring.cloud.gateway.enabled=true
+spring.cloud.gateway.mvc.routes-map.MOVIE-ADMIN-SERVICE.uri=lb://MOVIE-ADMIN-SERVICE
+#spring.cloud.gateway.mvc.routes-map.uri=http://localhost:9093/
+spring.cloud.gateway.mvc.routes-map.MOVIE-ADMIN-SERVICE.predicates=Path=/**
+
+#spring.cloud.gateway.routes.uri=http://localhost:9093/
+#spring.cloud.gateway.routes.uri=lb://MOVIE-ADMIN-UI-SERVICE
+
+
+
+# write  the path for consumerMicroservice
+#spring.cloud.gateway.routes.id=  consumerMicroservice
+#spring.cloud.gateway.routes.uri=http://localhost:9092/
+#spring.cloud.gateway.routes.uri=lb://movie-consumer-service
+#spring.cloud.gateway.routes.predicates.path=/movConsumerCtrl/fetchAllMovInfo
+#spring.cloud.gateway.routes.predicates.path=/movConsumerCtrl/findMovInfoById/{id}
+#spring.cloud.gateway.routes.predicates.path=/movConsumerCtrl/addMovInfo
+#spring.cloud.gateway.routes.predicates.path=/movConsumerCtrl/fetchAllMovInfo
+
+
+# This is for registring as eureka client
+spring.application.name=movie-api-service
+eureka.client.serviceUrl.defaultZone:http://localhost:8761/eureka
+
